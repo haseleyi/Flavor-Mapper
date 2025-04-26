@@ -1,0 +1,72 @@
+.flavor-results {
+  margin-top: 1.5rem;
+}
+
+.flavor-results h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.flavor-results h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.selected-ingredients {
+  margin-bottom: 1.5rem;
+}
+
+.matching-results {
+  margin-bottom: 1rem;
+}
+
+.pairings-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.pairing-tag {
+  background-color: #e8f4fd;
+  color: #2980b9;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid #bbd8f2;
+}
+
+.pairing-tag.selected {
+  background-color: #2980b9;
+  color: white;
+  border-color: #2980b9;
+}
+
+.no-matches {
+  background-color: #fef2f2;
+  border-left: 4px solid #e74c3c;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.no-matches p {
+  margin: 0.3rem 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.results-actions {
+  margin-top: 1rem;
+}
+
+.empty-state {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  color: #7f8c8d;
+}

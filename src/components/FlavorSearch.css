@@ -1,0 +1,19 @@
+.flavor-search {
+  margin-bottom: 1.5rem;
+}
+
+.flavor-search h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.flavor-selector {
+  margin-bottom: 1rem;
+}
+
+.flavor-count {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 0.8rem;
+}
