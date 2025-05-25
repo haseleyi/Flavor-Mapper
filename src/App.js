@@ -1,13 +1,44 @@
 import React, { useState, useEffect } from 'react';
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import FlavorSearch from './components/FlavorSearch';
 import FlavorResults from './components/FlavorResults';
 import FlavorVisualization from './components/FlavorVisualization';
 import './App.css';
 import flavorData from './assets/flavorData.json';
 
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          {children}
+        </Box>
+      )}
+    </div>
+  );
+}
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
 function App() {
   const [selectedFlavors, setSelectedFlavors] = useState([]);
   const [matchingPairings, setMatchingPairings] = useState([]);
+  const [activeTab, setActiveTab] = useState(0); // 0 for Graph, 1 for List
   const [allIngredients, setAllIngredients] = useState([]);
 
   // Extract all unique ingredients for the dropdown
@@ -40,6 +71,10 @@ function App() {
     setMatchingPairings(commonPairings);
   }, [selectedFlavors]);
 
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
+  };
+
   return (
     <div className="app">
       <header className="header">
@@ -49,23 +84,35 @@ function App() {
       
       <div className="container">
         <div className="app-layout">
-          <div className="search-container">
+          <div className="search-panel"> {/* Renamed from search-container */}
             <FlavorSearch 
               allIngredients={allIngredients} 
               selectedFlavors={selectedFlavors} 
               setSelectedFlavors={setSelectedFlavors} 
             />
-            <FlavorResults 
-              matchingPairings={matchingPairings} 
-              selectedFlavors={selectedFlavors}
-            />
           </div>
           
-          <div className="visualization-container">
-            <FlavorVisualization 
-              selectedFlavors={selectedFlavors} 
-              matchingPairings={matchingPairings} 
-            />
+          <div className="content-panel"> {/* Renamed from visualization-container */}
+            <Box sx={{ width: '100%' }}>
+              <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <Tabs value={activeTab} onChange={handleTabChange} aria-label="flavor view tabs">
+                  <Tab label="Graph" {...a11yProps(0)} />
+                  <Tab label="List" {...a11yProps(1)} />
+                </Tabs>
+              </Box>
+              <CustomTabPanel value={activeTab} index={0}>
+                <FlavorVisualization 
+                  selectedFlavors={selectedFlavors} 
+                  matchingPairings={matchingPairings} 
+                />
+              </CustomTabPanel>
+              <CustomTabPanel value={activeTab} index={1}>
+                <FlavorResults 
+                  matchingPairings={matchingPairings} 
+                  selectedFlavors={selectedFlavors}
+                />
+              </CustomTabPanel>
+            </Box>
           </div>
         </div>
       </div>

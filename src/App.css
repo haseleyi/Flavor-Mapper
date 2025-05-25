@@ -32,7 +32,7 @@
   width: 100%;
 }
 
-.search-container {
+.search-panel {
   background-color: white;
   border-radius: 8px;
   padding: 1.5rem;
@@ -40,7 +40,7 @@
   margin-bottom: 2rem;
 }
 
-.visualization-container {
+.content-panel {
   background-color: white;
   border-radius: 8px;
   padding: 1.5rem;
@@ -54,12 +54,12 @@
 @media (min-width: 768px) {
   .app-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr; /* Give more space to content */
     gap: 2rem;
     align-items: start;
   }
   
-  .search-container {
+  .search-panel {
     margin-bottom: 0;
   }
 }

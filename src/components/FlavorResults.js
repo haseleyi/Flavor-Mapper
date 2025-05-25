@@ -5,7 +5,7 @@ const FlavorResults = ({ matchingPairings, selectedFlavors }) => {
   if (selectedFlavors.length === 0) {
     return (
       <div className="flavor-results">
-        <h2>Matching Flavors</h2>
+        
         <div className="empty-state">
           <p>Please select at least one ingredient to see matching flavors.</p>
         </div>
@@ -15,7 +15,7 @@ const FlavorResults = ({ matchingPairings, selectedFlavors }) => {
 
   return (
     <div className="flavor-results">
-      <h2>Matching Flavors</h2>
+      
       
       {selectedFlavors.length > 0 && (
         <div className="selected-ingredients">
@@ -44,20 +44,7 @@ const FlavorResults = ({ matchingPairings, selectedFlavors }) => {
         </div>
       )}
       
-      <div className="results-actions">
-        <button 
-          className="button secondary"
-          onClick={() => {
-            // Functionality to copy results to clipboard
-            const text = `Selected ingredients: ${selectedFlavors.join(', ')}\n\nMatching pairings: ${matchingPairings.join(', ')}`;
-            navigator.clipboard.writeText(text);
-            alert('Results copied to clipboard!');
-          }}
-          disabled={matchingPairings.length === 0}
-        >
-          Copy Results
-        </button>
-      </div>
+
     </div>
   );
 };

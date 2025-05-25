@@ -152,7 +152,7 @@ const FlavorVisualization = ({ selectedFlavors, matchingPairings }) => {
 
   return (
     <div className="flavor-visualization">
-      <h2>Flavor Connections</h2>
+      
       <div className="visualization-wrapper">
         <svg ref={svgRef} className="visualization-svg"></svg>
       </div>
