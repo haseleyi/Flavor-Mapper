@@ -1,14 +1,6 @@
 # Flavor Mapper
 
-A modern web application for exploring food pairings recommended by top chefs. This project is a React-based reimplementation of the original [Flavor Bible App](https://areeves87.shinyapps.io/flavor-bible/), which was built with R Shiny.
-
-## Features
-
-- Search and select from 600+ different ingredients
-- Find ingredients that pair well with your selections
-- Interactive visualization of flavor connections
-- Clean, modern, and responsive UI
-- Copy results to clipboard for future reference
+A web app for pairing flavors and designing dishes
 
 ## Getting Started
 
@@ -61,8 +53,3 @@ The data is based on "The Flavor Bible" by Karen Page and Andrew Dornenburg, whi
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Original Flavor Bible App created with R Shiny
-- Original data extraction and processing done by the initial project creator
